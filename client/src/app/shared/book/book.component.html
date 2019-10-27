@@ -1,0 +1,36 @@
+<h5>{{ bookData.title }}</h5>
+
+<div *ngIf="bookData.authorName" class="buff-top-mini">
+  <div *ngFor="let author of bookData.authorName">
+    <p>{{ author.first_name  }}
+    <span *ngIf="author.middle_name">{{ author.middle_name }} </span>
+    <span *ngIf="author.last_name">{{ author.last_name }}</span>
+    </p>
+  </div>
+</div>
+
+<div *ngIf="bookData.isbn" class="buff-top-mini">
+  <p>ISBN: {{ bookData.isbn }}</p>
+</div>
+
+<div *ngIf="bookData.genreName" class="buff-top-mini">
+  <p *ngFor="let genre of bookData.genreName">
+    Genre: {{ genre.name }}</p>
+</div>
+
+<img *ngIf="bookData.img" class="buff-top-mini" src="{{bookData.img}}">
+
+<div *ngIf="bookData.instances" class="buff-top-mini">
+  <div *ngFor="let instance of bookData.instances; let i = index">
+    <div *ngIf="instance.availability === 'available' ||
+      instance.availability === 'lent'">
+      <p> {{ i + 1 }}: {{ instance.availability }}
+        <span *ngIf="bookData.checkout &&
+          instance.availability === 'available'">
+          <button class="btn btn-info"
+          (click)="instanceSelect(instance)">Lend</button>
+        </span>
+      </p>
+    </div>
+  </div>
+</div>

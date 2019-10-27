@@ -1,0 +1,9 @@
+<app-search-title (addBookEvent)="getBooks($event)"></app-search-title>
+
+<div class="buff-top-mini text-center" *ngIf="books">
+  <app-books [books]="books" (bookEvent)="selectBook($event)"></app-books>
+</div>
+
+<div class="buff-top-mini text-center">
+  <a class="btn btn-success" routerLink="/office">Return</a>
+</div>

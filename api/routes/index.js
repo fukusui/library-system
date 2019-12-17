@@ -20,7 +20,6 @@ var auth = jwt({
 });
 
 //Routes//
-
 router.get('/author',  ctrlAuthor.authors);
 router.get('/author/:id',  ctrlAuthor.author);
 router.post('/author/search', ctrlAuthor.search);
@@ -42,6 +41,8 @@ router.get('/genre/:id',  ctrlGenre.genre);
 
 router.post('/office/login', ctrlAdmin.login);
 router.get('/office/profile', auth, ctrlAdmin.profile);
+router.get('/office/employee', auth, ctrlAdmin.all);
+router.get('/office/employee/:id', auth, ctrlAdmin.id);
 
 router.post('/user', auth, ctrlUser.search);
 router.get('/user', auth, ctrlUser.search);

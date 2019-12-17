@@ -3,6 +3,10 @@ var Types = keystone.Field.Types;
 var jwt = require('jsonwebtoken');
 var Admin = new keystone.List('Admin');
 
+if (process.env.NODE_ENV !== 'production') {
+	require('dotenv').config();
+}
+
 Admin.add({
 	name: { type: Types.Name, required: true, index: true },
 	email: { type: Types.Email, initial: true, required: true, unique: true, index: true },
@@ -23,12 +27,8 @@ Admin.schema.methods.generateJwt = function() {
   return jwt.sign({
     _id: this._id,
     exp: parseInt(expiry.getTime() / 1000),
-  }, process.env.SECRET || "sercretisneeded");
+  }, process.env.SECRET);
 };
 
-
-/**
- * Registration
- */
 Admin.defaultColumns = 'name, email, isAdmin';
 Admin.register();

@@ -18,10 +18,7 @@ module.exports.login = async (req, res) => {
       	res.json({
 					"token" : token
 				});
-      }
-    })
-  }
-};
+      }})}};
 
 module.exports.profile = (req, res) => {
   var Admin = keystone.list('Admin');
@@ -37,3 +34,20 @@ module.exports.profile = (req, res) => {
       });
   }
 };
+
+module.exports.all = (req, res) => {
+  var Admin = keystone.list('Admin');
+  var admins = Admin.model.find({});
+  admins.exec((err, admins) => {
+    if(err) res.send(err);
+    res.json(admins);
+  });
+};
+
+module.exports.id = (req, res) => {
+  var Admin = keystone.list('Admin');
+  Admin.model.findById(req.params.id, (err, admin) => {
+    if(err) res.send(err);
+    res.json(admin);
+  });
+}

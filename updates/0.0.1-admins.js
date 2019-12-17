@@ -1,10 +1,14 @@
-require('dotenv').config();
+if (process.env.NODE_ENV !== 'production') {
+	require('dotenv').config();
+}
+
 exports.create = {
 	Admin: [
-		{ 'name.first': process.env.ADMIN_FIRST ||'Admin',
-      'name.last':  process.env.ADMIN_LAST || 'User',
-      'email': process.env.ADMIN_EMAIL || 'admin@keystone.com',
-      'password': process.env.ADMIN_PASSWORD ||'test123',
-      'isAdmin': true },
+	{ 'address': process.env.ADMIN_ADDRESS,
+		'name.first': process.env.ADMIN_FIRST,
+    'name.last':  process.env.ADMIN_LAST,
+    'email': process.env.ADMIN_EMAIL,
+    'password': process.env.ADMIN_PASSWORD,
+    'isAdmin': true },
 	],
 };

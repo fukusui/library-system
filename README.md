@@ -55,7 +55,7 @@ $ node app.js
 
 3. To lend a book, search the title of the book. If a user wants to return a book, click the return button next to the barrowed book.
 
-## Production Server with Kovan Test Network
+## Production Server
 
 1. Compile client side angular code.
 

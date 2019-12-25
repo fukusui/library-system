@@ -1,0 +1,36 @@
+{
+  "admin": {
+    "name": {
+      "first": "Taro",
+      "last": "Yamada"
+    },
+	  "email": "ty@keystone.com",
+		"password": "japan123",
+		"isAdmin": true
+  },
+  "user": {
+    "email": "mm@gmail.com",
+		"name": {
+      "first": "Musashi",
+      "last": "Miyamoto"
+    }
+  },
+  "genre": {
+    "name": "Business & Economics"
+  },
+  "author": {
+		"first_name": "Thomas",
+    "last_name": "Sowell"
+  },
+  "book": {
+    "title": "Basic Economics",
+		"author": "",
+		"genre": "",
+		"isbn": "9780465056842",
+		"img": "http://books.google.com/books/content?id=oVaNBQAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api"
+	},
+  "bookInstance": {
+		"book": "",
+		"availability": "available"
+  }
+}

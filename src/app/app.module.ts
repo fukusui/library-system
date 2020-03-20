@@ -3,8 +3,9 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeModule } from './home/home.module';
-import { OfficeModule } from './office/office.module';
-import { SharedModule } from './shared/shared.module'
+import { RootStoreModule } from './root-store.module';
+// import { OfficeModule } from './office/office.module';
+// import { CoreModule } from '@core/core.module';
 
 @NgModule({
   declarations: [
@@ -12,18 +13,14 @@ import { SharedModule } from './shared/shared.module'
   ],
   imports: [
     BrowserModule,
+    // CoreModule,
     HomeModule,
-    OfficeModule,
-    SharedModule,
-    AppRoutingModule
+    // OfficeModule,
+    AppRoutingModule,
+    RootStoreModule
   ],
   bootstrap: [AppComponent],
   providers: [
-		// {
-    // 	provide: HTTP_INTERCEPTORS,
-    //  	useClass: HttpErrorInterceptor,
-    //  	multi: true
-   	// }
   ]
 })
 export class AppModule { }
